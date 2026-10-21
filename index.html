@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#8a5a35">
+<meta name="color-scheme" content="only light">
+<meta name="darkreader-lock">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="DeejatBakery">
+<meta name="format-detection" content="telephone=no">
+<meta name="HandheldFriendly" content="true">
+<title>DeejatBakery</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='88'%3E%F0%9F%A5%90%3C/text%3E%3C/svg%3E">
+<!-- build:css -->
+<link rel="stylesheet" href="css/fonts.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/start.css">
+<link rel="stylesheet" href="css/logo.css">
+<link rel="stylesheet" href="css/menu.css">
+<link rel="stylesheet" href="css/shop.css">
+<link rel="stylesheet" href="css/game.css">
+<link rel="stylesheet" href="css/ui.css">
+<link rel="stylesheet" href="css/howto.css">
+<link rel="stylesheet" href="css/responsive.css">
+<!-- /build:css -->
+</head>
+<body>
+<!-- build:body -->
+<!-- ============================ 1. หน้าเริ่มเกม ============================ -->
+<section id="screen-start" class="screen active" aria-label="หน้าเริ่มเกม" data-i18n-aria="scr.start">
+  <!-- ฉากหลังร้านขนมปังโทนน้ำตาล (CSS ล้วน ไม่มีรูปเพิ่ม ดู css/start.css) -->
+  <div class="bk" aria-hidden="true">
+    <div class="bk-lamp p1"></div><div class="bk-lamp p2"></div><div class="bk-lamp p3"></div>
+    <div class="bk-shelf sh1"><span>🥐</span><span>🍞</span><span>🥖</span></div>
+    <div class="bk-shelf sh2"><span>🥯</span><span>🧁</span><span>🥨</span></div>
+    <!-- เคาน์เตอร์ไม้ + ตู้กระจกโชว์ขนมติดป้ายราคา + ถาดขนมปังเพิ่งอบบนตู้ (มีไอร้อน) -->
+    <div class="bk-counter">
+      <div class="bk-case">
+        <span>🥐<i>฿35</i></span><span>🍩<i>฿25</i></span><span>🧁<i>฿45</i></span><span>🍰<i>฿65</i></span><span>🥯<i>฿30</i></span><span>🍪<i>฿20</i></span><span>🥧<i>฿55</i></span>
+        <div class="bk-top"><span class="hot">🍞</span><span class="hot">🥖</span></div>
+      </div>
+    </div>
+    <div class="bk-floor"></div>
+  </div>
+  <div id="sparkles" aria-hidden="true"></div>
+  <div id="sweets" aria-hidden="true"></div><!-- ขนมร่วงลงมา (สร้างใน js/start-screen.js แตะไม่ได้) -->
+  <div class="awning" aria-hidden="true"></div>
+  <div class="floaty f1" id="fl-1"></div><div class="floaty f2" id="fl-2"></div><div class="floaty f3" id="fl-3"></div>
+
+  <div class="start-main">
+    <!-- ชั้นวางขนมบนผนัง: กินพื้นที่ว่างเหนือโลโก้/ใต้ปุ่ม และโชว์เฉพาะตอนมีที่พอ (ไม่ทับอะไรเลย) -->
+    <div class="ws-slot top" aria-hidden="true"><div class="ws"><span>🥐</span><span>🍞</span><span>🥖</span><span>🥨</span><span>🥯</span></div></div>
+    <h1 class="logo" id="logo" aria-label="DeejatBakery"><span class="logo-word"><span class="lt" data-l="D">D</span><span class="lt" data-l="e">e</span><span class="lt" data-l="e">e</span><span class="lt" data-l="j">j</span><span class="lt" data-l="a">a</span><span class="lt" data-l="t">t<i class="logo-cookie" id="logo-cookie" aria-hidden="true"><svg viewBox="0 0 100 100"><defs><mask id="bite"><rect width="100" height="100" fill="#fff"/><circle cx="88" cy="20" r="15" fill="#000"/><circle cx="74" cy="9" r="10" fill="#000"/><circle cx="95" cy="36" r="9" fill="#000"/></mask></defs><g mask="url(#bite)"><circle cx="50" cy="52" r="46" fill="#fff"/><circle cx="50" cy="52" r="39" fill="#eab27a" stroke="#b8743a" stroke-width="3.5"/><ellipse cx="38" cy="36" rx="12" ry="5" fill="#fff" opacity=".45" transform="rotate(-25 38 36)"/><g fill="#6b3414"><ellipse cx="27" cy="58" rx="5" ry="4"/><ellipse cx="70" cy="64" rx="5.5" ry="4.2"/><ellipse cx="56" cy="80" rx="4.5" ry="3.6"/><ellipse cx="34" cy="78" rx="3.6" ry="3"/><ellipse cx="62" cy="34" rx="4" ry="3.2"/></g><ellipse cx="40" cy="54" rx="4.4" ry="5.6" fill="#3d2540"/><circle cx="41.6" cy="51.6" r="1.7" fill="#fff"/><ellipse cx="60" cy="54" rx="4.4" ry="5.6" fill="#3d2540"/><circle cx="61.6" cy="51.6" r="1.7" fill="#fff"/><path d="M45 63 Q50 69 55 63" stroke="#3d2540" stroke-width="3" fill="none" stroke-linecap="round"/><circle cx="32" cy="64" r="4.6" fill="#ff8fb4" opacity=".7"/><circle cx="68" cy="64" r="4.6" fill="#ff8fb4" opacity=".7"/></g></svg></i></span></span><span class="logo-sub">Bakery</span></h1>
+    <div class="ribbon">fresh baked daily · since 2000</div>
+    <p class="tagline" data-i18n="start.tagline">ร้านขนมปังอบสดของแก๊งเรา มาอบขนมด้วยกันนะ 🥐☕</p>
+    <button class="btn pri big" id="btn-play" type="button" data-i18n="start.play">▶ เริ่มเกม</button>
+    <div class="ws-slot bot" aria-hidden="true"><div class="ws"><span>🧁</span><span>🍩</span><span>🎂</span><span>🥧</span><span>🍪</span></div></div>
+  </div>
+
+  <div class="pal cbox a" id="pal-girl" role="img" aria-label="เชฟแว่นตา" data-i18n-aria="char.girl"></div><div class="pal cbox b" id="pal-cat" role="img" aria-label="มีโอ" data-i18n-aria="char.cat"></div><div class="pal cbox c" id="pal-bear" role="img" aria-label="หมีหม่ำ" data-i18n-aria="char.bear"></div>
+  <button class="btn round" id="btn-set-start" type="button" aria-label="ตั้งค่า" data-i18n-aria="settings">⚙️</button>
+</section>
+
+<!-- ============================ 2. เลือกเมนู ============================ -->
+<section id="screen-menu" class="screen" aria-label="เลือกเมนู" data-i18n-aria="scr.menu">
+  <!-- ฉากหลัง = ห้องครัวเบเกอรี่ขนาดใหญ่ (CSS ล้วน ดู css/shop.css) เพื่อน ๆ ตัวเล็กยืนทำขนมหลังโต๊ะ (js/shop.js) -->
+  <div class="shop" aria-hidden="true">
+    <div class="kit-wall"></div>
+    <div class="kit-rail"><i>🍳</i><i>🥄</i><i>🍴</i><i>🥄</i><i>🍳</i></div>
+    <div class="kit-shelf k1"><span>🍯</span><span>🧂</span><span>🥛</span><span>🧈</span></div>
+    <div class="kit-shelf k2"><span>🥖</span><span>🍞</span><span>🥐</span><span>🥯</span></div>
+    <div class="kit-oven"><i class="fire"></i><span>🍞</span></div>
+    <div class="kit-rack"><span>🥐</span><span>🥐</span><span>🥖</span><span>🍞</span><span>🧁</span><span>🍪</span></div>
+    <div class="kit-crew" id="kit-crew"></div>
+    <div class="kit-table"><div class="on-top"><span>🥣</span><span>🥚</span><span>🧈</span><span>🥖</span></div></div>
+  </div>
+  <header class="bar">
+    <button class="btn round" id="menu-back" type="button" aria-label="กลับ" data-i18n-aria="back">‹</button>
+    <h2><span class="bar-title" data-i18n="menu.title">เลือกเมนูวันนี้</span><button class="bar-diff" id="menu-diff" type="button" data-open="settings"></button></h2>
+    <button class="btn round" data-open="settings" type="button" aria-label="ตั้งค่า" data-i18n-aria="settings">⚙️</button>
+  </header>
+  <div class="cards" id="cards"></div>
+  <div id="menu-pal" aria-hidden="true"></div>
+</section>
+
+<!-- ============================ 3. ห้องครัว ============================ -->
+<section id="screen-game" class="screen" aria-label="ห้องครัว" data-i18n-aria="scr.game">
+  <header class="g-top">
+    <button class="btn round" id="game-back" type="button" aria-label="กลับไปเลือกเมนู" data-i18n-aria="game.back">‹</button>
+    <div class="title"><b id="g-name"></b><div class="dots" id="dots"></div></div>
+    <button class="btn round" id="btn-book" type="button" aria-label="สูตรอาหาร" data-i18n-aria="book">📖</button>
+    <button class="btn round" data-open="settings" type="button" aria-label="ตั้งค่า" data-i18n-aria="settings">⚙️</button>
+  </header>
+
+  <div class="kitchen" id="kitchen">
+    <span class="learn-chip" data-i18n="tu.badge">🎓 โหมดสอนเล่น</span>
+    <!-- ป้ายตอนเข้าครัว: ด่าน + ระดับความยาก + ความท้าทายของด่านนี้ (หายเองใน 3 วินาที) -->
+    <div class="lvl-banner" id="lvlbanner" aria-hidden="true"></div>
+    <div class="lives" id="lives" role="img" aria-label="หัวใจ"></div>
+    <div class="wall" aria-hidden="true"></div>
+    <div class="flags" id="flags" aria-hidden="true"></div>
+    <div class="wshelf" aria-hidden="true"></div>
+    <div class="lamp l1" aria-hidden="true"></div><div class="lamp l2" aria-hidden="true"></div>
+    <div class="window" aria-hidden="true"><i></i><i></i><b class="sky"><span class="sun2">☀️</span><span class="cl2">☁️</span></b></div>
+    <div class="counter" aria-hidden="true"></div>
+    <!-- ตู้กระจกโชว์ขนมปังบนเคาน์เตอร์ด้านหลัง + กระดานชอล์กเมนูวันนี้ (ภาพนิ่ง วาดครั้งเดียว) -->
+    <div class="pcase" aria-hidden="true"><i>🥐</i><i>🥖</i><i>🍞</i><i>🥨</i><i>🥯</i><i>🍩</i><i>🥧</i><i>🧁</i><i>🥐</i><i>🍞</i><i>🥖</i><i>🍩</i></div>
+    <div class="chalk" aria-hidden="true"><b data-i18n="kd.menu">เมนูวันนี้</b><ul id="chalk-list"></ul></div>
+    <div class="sign" id="sign" aria-hidden="true"></div>
+    <div class="stage-wrap" id="stagewrap">
+      <div id="stage"><div id="stageSvg"></div></div>
+      <!-- เพื่อน ๆ ช่วยทำขนม (ตัวละคร 2 ตัวที่ไม่ได้เลือกเป็นเชฟ — วาดใน js/pests.js) -->
+      <span class="cbox helper hl" id="helper-l" aria-hidden="true"></span><span class="cbox helper hr" id="helper-r" aria-hidden="true"></span>
+      <span class="h-say hl-say" id="hsay-l" aria-hidden="true"></span><span class="h-say hr-say" id="hsay-r" aria-hidden="true"></span>
+      <!-- ป้ายลูกเล่นของสายพาน (ด่าน 2 กลับทิศ / ด่าน 3 เร่งความเร็ว) -->
+      <span class="belt-cue" id="beltcue" aria-hidden="true"></span>
+    </div>
+    <!-- แมลงก่อกวนที่บินเข้าหาขนม แตะเพื่อปัดออก (js/pests.js) -->
+    <div class="pests" id="pests" aria-hidden="true"></div>
+    <div class="shelf" id="shelf"></div>
+  </div>
+
+  <div class="panel">
+    <div class="say-row">
+      <button id="char" class="cbox" type="button" aria-label="เชฟของฉัน" data-i18n-aria="mychef"></button>
+      <div class="bubble">
+        <p id="say" aria-live="polite"></p>
+        <p class="tipline" id="tip"></p>
+      </div>
+    </div>
+    <div class="instr" id="instr"></div>
+    <div class="meter off" id="meter" aria-hidden="true"><div class="fillbar" id="mfill"></div><div class="zone" id="mzone"></div><b class="mlbl ml-raw" data-i18n="mt.raw">ดิบ</b><b class="mlbl ml-ok" id="mlok" data-i18n="mt.ok">พอดี</b><b class="mlbl ml-burn" data-i18n="mt.burn">ไหม้</b><div class="needle" id="mneedle"></div></div>
+    <button class="btn pri" id="act" type="button" hidden></button>
+  </div>
+
+  <!-- แพ้: ขนมไหม้ / ไม่สุก / ทำผิดจนหมดหัวใจ → เริ่มเมนูนี้ใหม่ (อยู่ในหน้าครัว ไม่ใช่หน้าต่างทั่วไป จึงปิดผิดพลาดไม่ได้) -->
+  <div class="lose" id="lose" role="alertdialog" aria-modal="true" aria-labelledby="lose-title" aria-describedby="lose-msg" hidden>
+    <div class="lose-card">
+      <div class="lose-ico" id="lose-ico" aria-hidden="true"></div>
+      <h2 id="lose-title"></h2>
+      <p id="lose-msg"></p>
+      <div class="acts">
+        <button class="btn" id="lose-again" type="button" data-i18n="lose.again">🔁 เริ่มใหม่</button>
+        <button class="btn mint" id="lose-menu" type="button" data-i18n="lose.menu">🍰 เลือกเมนูอื่น</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ 4. สรุปผล ============================ -->
+<section id="screen-result" class="screen" aria-label="สรุปผล" data-i18n-aria="scr.result">
+  <div class="res">
+    <div class="ico" id="res-ico"></div>
+    <h2 id="res-title"></h2>
+    <div class="stars" id="res-stars"></div>
+    <p id="res-msg"></p>
+    <p class="res-learn" id="res-learn" hidden></p>
+    <div class="acts">
+      <button class="btn pri" id="res-again" type="button" data-i18n="res.again">🔁 ทำอีกครั้ง</button>
+      <button class="btn mint" id="res-menu" type="button" data-i18n="res.menu">🍰 เลือกเมนูอื่น</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ หน้าต่างตั้งค่า ============================ -->
+<div class="overlay" id="settings" role="dialog" aria-modal="true" aria-label="ตั้งค่า" data-i18n-aria="settings">
+  <!-- การ์ดตั้งค่าแบบร้านเบเกอรี่: แบ่งเป็นหมวด อ่านง่าย ปุ่มใหญ่กดง่าย (สไตล์ใน css/ui.css) -->
+  <div class="modal set">
+    <h2><span data-i18n="set.title">⚙️ ตั้งค่า</span> <button class="btn round" data-close type="button" aria-label="ปิด" data-i18n-aria="close">✕</button></h2>
+    <section class="sg">
+      <h3 data-i18n="set.g.play">🎮 การเล่น</h3>
+      <div class="row"><label data-i18n="set.assist">🎯 ความยาก</label><div class="seg" id="s-assist"><button type="button" data-v="easy" data-i18n="lv.easy">ง่าย</button><button type="button" data-v="normal" data-i18n="lv.normal">ปกติ</button><button type="button" data-v="hard" data-i18n="lv.hard">ยาก</button></div></div>
+      <div class="row"><label data-i18n="set.lang">🌐 ภาษา</label><div class="seg" id="s-lang"><button type="button" data-v="th">ไทย</button><button type="button" data-v="en">English</button></div></div>
+      <!-- ไม่มีตัวเลือก: ของแปลกปลอมหล่นมาทุกด่านเสมอ / สอนเล่นด่านแรกเสมอ / วิธีเล่นขึ้นเองตอนเข้าเกม (js/howto.js) -->
+    </section>
+    <section class="sg">
+      <h3 data-i18n="set.g.sound">🔊 เสียง</h3>
+      <div class="row"><label for="s-music" data-i18n="set.music">🎵 เพลง</label><input type="range" id="s-music" min="0" max="1" step=".05"></div>
+      <div class="row"><label for="s-sfx" data-i18n="set.sfx">🔔 เสียงเอฟเฟกต์</label><input type="range" id="s-sfx" min="0" max="1" step=".05"></div>
+      <div class="row"><label for="s-mute" data-i18n="set.mute">🔇 ปิดเสียงทั้งหมด</label><input type="checkbox" class="switch" id="s-mute"></div>
+      <div class="row"><label for="s-hap" data-i18n="set.hap">📳 สั่น (Android)</label><input type="checkbox" class="switch" id="s-hap"></div>
+    </section>
+    <section class="sg">
+      <h3 data-i18n="set.g.help">✨ ตัวช่วย</h3>
+      <div class="row"><label for="s-cap" data-i18n="set.cap">💬 คำพูดเชฟ</label><input type="checkbox" class="switch" id="s-cap"></div>
+      <div class="row"><label for="s-hint" data-i18n="set.hint">💡 ไฮไลต์ตัวที่ถูก</label><input type="checkbox" class="switch" id="s-hint"></div>
+      <div class="row"><label for="s-calm" data-i18n="set.calm">🍃 ลดการเคลื่อนไหว</label><input type="checkbox" class="switch" id="s-calm"></div>
+    </section>
+    <section class="sg">
+      <h3 data-i18n="set.g.chef">🧑‍🍳 เชฟของฉัน</h3>
+      <div class="seg chars" id="s-char"></div>
+    </section>
+    <div class="row last"><label data-i18n="set.resetLabel">🗑 ล้างคะแนนดาว</label><button class="btn sm danger" id="s-reset" type="button">ล้าง</button></div>
+    <p class="ver" id="s-ver"></p>
+  </div>
+</div>
+
+<!-- ============================ สมุดสูตร ============================ -->
+<div class="overlay" id="book" role="dialog" aria-modal="true" aria-label="สูตรอาหาร" data-i18n-aria="book">
+  <div class="modal book">
+    <h2><span id="book-title" data-i18n="book.title">📖 สูตร</span><button class="btn round" data-close type="button" aria-label="ปิด" data-i18n-aria="close">✕</button></h2>
+    <div id="book-body"></div>
+  </div>
+</div>
+
+<!-- ============================ แนะนำเกม / สอนเล่น (เนื้อหาสร้างใน js/howto.js) ============================ -->
+<div class="overlay" id="howto" role="dialog" aria-modal="true" aria-label="วิธีเล่น" data-i18n-aria="howto.aria">
+  <div class="modal howto">
+    <div class="ht-slides" id="ht-slides" aria-live="polite"></div>
+    <div class="ht-dots" id="ht-dots"></div>
+    <div class="ht-acts"><button class="btn" id="ht-skip" type="button">ข้าม</button><button class="btn" id="ht-next" type="button">ถัดไป ›</button></div>
+  </div>
+</div>
+<!-- /build:body -->
+
+<!-- build:js -->
+<script src="js/utils.js"></script>
+<script src="js/safe.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/assets.js"></script>
+<script src="js/characters.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/recipes.js"></script>
+<script src="js/recipes-en.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/shop.js"></script>
+<script src="js/stage.js"></script>
+<script src="js/cookfx.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/mechanics.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/screens.js"></script>
+<script src="js/howto.js"></script>
+<script src="js/pests.js"></script>
+<script src="js/wallshelf.js"></script>
+<script src="js/start-screen.js"></script>
+<script src="js/main.js"></script>
+<!-- /build:js -->
+</body>
+</html>
